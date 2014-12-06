@@ -1,0 +1,7 @@
+Sys.setlocale('LC_TIME','en_US.UTF-8')
+df <- read.csv('subset.txt',sep=";")
+x <- paste(df$Date,df$Time)
+dt = strptime(x,"%d/%m/%Y %H:%M:%S",tz="PST")
+png("plot1.png",width = 480, height = 480)
+hist(df$Global_active_power,xlab='Global Active Power(kilowatts)',main='Global Active Power',col=10)
+dev.off()
